@@ -1,0 +1,72 @@
+//procedure
+
+PROCEDURE dot_product(VAR ps,V1,V2)
+VAR
+BEGIN
+FOR i FROM 0 TO n-1 STEP step  DO
+    ps := ps + V1[i]*V2[i];
+END_FOR    
+END
+
+ALGORITHM Dotproduct
+VAR
+    i : INTEGER; 
+    ps : FLOAT := 0;
+    n : INTEGER;
+    V1 : ARRAY_OF FLOAT[n];
+    V2 : ARRAY_OF FLOAT[n];
+BEGIN
+    write("écrire la taille de deux vecteurs");
+    read(n);
+
+    FOR i FROM 0 TO n-1 STEP step  DO
+    write("écrire l’élément ",i+1," du premier vecteur V1");
+    read(V1[i]);
+    write("écrire l’élément ",i+1," du second vecteur V2");
+    read(V2[i]);
+    END_FOR
+    
+    dot_product(ps,V1,V2);
+    
+    IF (ps=0) THEN
+        write("Les deux vecteurs sont orthogonaux.");
+    ELSE
+        write("Les deux vecteurs ne sont pas orthogonaux.");
+    END_IF
+END
+
+//fonction
+
+FUNCTION dot_product(V1,V2) : FLOAT
+VAR
+    ps : FLOAT := 0;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP step  DO
+    ps := ps + V1[i]*V2[i];
+    END_FOR    
+    RETURN ps;
+END
+
+ALGORITHM Dotproduct
+VAR
+    i : INTEGER; 
+    n : INTEGER;
+    V1 : ARRAY_OF FLOAT[n];
+    V2 : ARRAY_OF FLOAT[n];
+BEGIN
+    write("écrire la taille de deux vecteurs");
+    read(n);
+
+    FOR i FROM 0 TO n-1 STEP step  DO
+    write("écrire l’élément ",i+1," du premier vecteur V1");
+    read(V1[i]);
+    write("écrire l’élément ",i+1," du second vecteur V2");
+    read(V2[i]);
+    END_FOR
+    
+    IF (dot_product(V1,V2) = 0) THEN
+        write("Les deux vecteurs sont orthogonaux.");
+    ELSE
+        write("Les deux vecteurs ne sont pas orthogonaux.");
+    END_IF
+END
